@@ -3,14 +3,14 @@ requires = ["hatchling", "hatch-vcs"]
 build-backend = "hatchling.build"
 
 [project]
-name = "fileformats-CHANGEME"
+name = "fileformats-vendor-brainproducts"
 description = "Classes for representing different file formats in Python classes for use in type hinting in data workflows"
 readme = "README.rst"
-requires-python = ">=3.8"
-dependencies = ["fileformats >= 0.4"]
+requires-python = ">=3.11"
+dependencies = ["fileformats >= 0.17.5", "fileformats-biosig >= 0.1.0"]
 license = { file = "LICENSE" }
-authors = [{ name = "<YOUR-NAME>", email = "<YOUR-EMAIL>" }]
-maintainers = [{ name = "<YOUR-NAME>", email = "<YOUR-EMAIL>" }]
+authors = [{ name = "Thomas G. Close", email = "tom.g.close@gmail.com" }]
+maintainers = [{ name = "Thomas G. Close", email = "tom.g.close@gmail.com" }]
 keywords = ["file formats", "data"]
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -20,10 +20,10 @@ classifiers = [
     "Operating System :: MacOS :: MacOS X",
     "Operating System :: Microsoft :: Windows",
     "Operating System :: POSIX :: Linux",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "Topic :: Scientific/Engineering",
 ]
 dynamic = ["version"]
@@ -39,20 +39,20 @@ test = [
 ]
 
 [project.urls]
-repository = "https://github.com/ArcanaFramework/fileformats-CHANGEME"
+repository = "https://github.com/ArcanaFramework/fileformats-vendor-brainproducts"
 
 [tool.hatch.version]
 source = "vcs"
 
 [tool.hatch.build.hooks.vcs]
-version-file = "fileformats/CHANGEME/_version.py"
+version-file = "fileformats/vendor/brainproducts/_version.py"
 
 [tool.hatch.build.targets.wheel]
 packages = ["fileformats"]
 
 [tool.black]
 target-version = ['py38']
-exclude = "fileformats/CHANGEME/_version.py"
+exclude = "fileformats/vendor/brainproducts/_version.py"
 
 [tool.codespell]
 ignore-words = ".codespell-ignorewords"

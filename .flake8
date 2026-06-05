@@ -7,7 +7,7 @@ exclude =
     docs/sphinxext/
     docs/tools/
     docs/conf.py
-    fileformats/CHANGEME/_version.py
+    fileformats/vendor/brainproducts/_version.py
     docs/source/conf.py
 max-line-length = 88
 select = C,E,F,W,B,B950

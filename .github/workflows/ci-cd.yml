@@ -28,10 +28,6 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v6
-    - name: Unset header
-      # checkout@v6 adds a header that makes branch protection report errors
-      # because the Github action bot is not a collaborator on the repo
-      run: git config --local --unset http.https://github.com/.extraheader
     - name: Fetch tags
       run: git fetch --prune --unshallow
     - name: Disable etelemetry
@@ -67,10 +63,6 @@ jobs:
       with:
         submodules: recursive
         fetch-depth: 0
-    - name: Unset header
-      # checkout@v6 adds a header that makes branch protection report errors
-      # because the Github action bot is not a collaborator on the repo
-      run: git config --local --unset http.https://github.com/.extraheader
     - name: Set up Python
       uses: actions/setup-python@v6
       with:
