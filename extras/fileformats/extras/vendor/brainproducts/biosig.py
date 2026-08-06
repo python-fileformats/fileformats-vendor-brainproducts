@@ -30,15 +30,15 @@ def brain_vision_deidentify(
     bv: BrainVision,
     spec: ty.Any = None,
     out_dir: os.PathLike[str] | None = None,
-) -> tuple[BrainVision, dict[str, ty.Any]]:
+    **kwargs: ty.Any,
+) -> BrainVision:
     out_dir = Path(tempfile.mkdtemp() if out_dir is None else out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     raw = mne.io.read_raw_brainvision(bv.header_file, preload=True, verbose=False)
-    deidentified_info, reid = mne_deidentify(raw, spec)
-    raw.info = deidentified_info
+    raw.info = mne_deidentify(raw, spec)
     deid_vhdr = out_dir / "eeg.vhdr"
     mne.export.export_raw(deid_vhdr, raw, fmt="brainvision", overwrite=True)
-    return BrainVision(out_dir / "eeg.eeg"), reid
+    return BrainVision(out_dir / "eeg.eeg")
 
 
 def _parse_vhdr(path: os.PathLike[str]) -> dict[str, ty.Any]:
