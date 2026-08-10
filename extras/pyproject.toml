@@ -10,7 +10,7 @@ requires-python = ">=3.11"
 dependencies = [
     "fileformats >= 0.17.5",
     "pydra >= 1.0a9",
-    "fileformats-biosig >= 0.1.0",
+    "fileformats-biosig-extras >= 0.1.0",
     "fileformats-vendor-brainproducts",
 ]
 license = { file = "LICENSE" }
