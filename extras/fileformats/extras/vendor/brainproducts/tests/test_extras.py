@@ -10,7 +10,7 @@ Email:
 - miaocao@swin.edu.au
 """
 
-from fileformats.biosig import BrainVision
+from fileformats.vendor.brainproducts.biosig import BrainVision
 
 # ------------------------------
 # EEG: BrainVision

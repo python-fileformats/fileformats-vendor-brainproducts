@@ -1,16 +1,15 @@
+import configparser
 import os
 import typing as ty
-import configparser
 from pathlib import Path
 
-import mne.io
 import mne.export
+import mne.io
 
-from fileformats.core import extra_implementation, FileSet
-from fileformats.vendor.brainproducts.biosig import BrainVision
 from fileformats.biosig import Biosig
-
+from fileformats.core import extra_implementation, FileSet
 from fileformats.extras.biosig.utils import mne_deidentify
+from fileformats.vendor.brainproducts.biosig import BrainVision
 
 
 @extra_implementation(FileSet.read_metadata)
