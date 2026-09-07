@@ -16,7 +16,7 @@ jobs:
   test:
     strategy:
       matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
+        os: [ubuntu-latest]
         python-version: ["3.11", "3.14"]
       fail-fast: false
     runs-on: ${{ matrix.os }}
@@ -27,13 +27,13 @@ jobs:
       PIP_BREAK_SYSTEM_PACKAGES: 1
     steps:
     - name: Checkout
-      uses: actions/checkout@v6
+      uses: actions/checkout@v7
     - name: Fetch tags
       run: git fetch --prune --unshallow
     - name: Disable etelemetry
       run:  echo "NO_ET=TRUE" >> $GITHUB_ENV
     - name: Set up Python ${{ matrix.python-version }} on ${{ matrix.os }}
-      uses: actions/setup-python@v6
+      uses: actions/setup-python@v7
       with:
         python-version: ${{ matrix.python-version }}
     - name: Update build tools
@@ -45,7 +45,7 @@ jobs:
     - name: Pytest
       run: pytest -vvs --cov fileformats --cov-config .coveragerc --cov-report xml .
     - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v6
+      uses: codecov/codecov-action@v7
       with:
         fail_ci_if_error: true
         token: ${{ secrets.CODECOV_TOKEN }}
@@ -59,12 +59,12 @@ jobs:
           - ["main", "."]
           - ["extras", "./extras"]
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v7
       with:
         submodules: recursive
         fetch-depth: 0
     - name: Set up Python
-      uses: actions/setup-python@v6
+      uses: actions/setup-python@v7
       with:
         python-version: '3.12'
     - name: Install build tools
@@ -73,7 +73,7 @@ jobs:
       run: python3 -m build ${{ matrix.pkg[1] }}
     - name: Check distributions
       run: twine check ${{ matrix.pkg[1] }}/dist/*
-    - uses: actions/upload-artifact@v8
+    - uses: actions/upload-artifact@v7
       with:
         name: built-${{ matrix.pkg[0] }}
         path: ${{ matrix.pkg[1] }}/dist

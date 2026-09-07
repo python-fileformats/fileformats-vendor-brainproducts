@@ -1,17 +1,15 @@
+import configparser
 import os
 import typing as ty
-import tempfile
-import configparser
 from pathlib import Path
 
-import mne.io
 import mne.export
+import mne.io
 
-from fileformats.core import extra_implementation, FileSet
-from fileformats.vendor.brainproducts.biosig import BrainVision
 from fileformats.biosig import Biosig
-
+from fileformats.core import extra_implementation, FileSet
 from fileformats.extras.biosig.utils import mne_deidentify
+from fileformats.vendor.brainproducts.biosig import BrainVision
 
 
 @extra_implementation(FileSet.read_metadata)
@@ -28,11 +26,11 @@ def brain_vision_read_metadata(
 @extra_implementation(Biosig.deidentify)
 def brain_vision_deidentify(
     bv: BrainVision,
+    out_dir: os.PathLike[str],
     spec: ty.Any = None,
-    out_dir: os.PathLike[str] | None = None,
     **kwargs: ty.Any,
 ) -> BrainVision:
-    out_dir = Path(tempfile.mkdtemp() if out_dir is None else out_dir)
+    out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     raw = mne.io.read_raw_brainvision(bv.header_file, preload=True, verbose=False)
     raw.info = mne_deidentify(raw, spec)
