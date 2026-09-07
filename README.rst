@@ -1,7 +1,7 @@
 FileFormats Extension - Brain Products
 ======================================
-.. image:: https://github.com/python-fileformats/fileformats-vendor-brainproducts/actions/workflows/tests.yml/badge.svg
-    :target: https://github.com/python-fileformats/fileformats-vendor-brainproducts/actions/workflows/tests.yml
+.. image:: https://github.com/python-fileformats/fileformats-vendor-brainproducts/actions/workflows/ci-cd.yml/badge.svg
+    :target: https://github.com/python-fileformats/fileformats-vendor-brainproducts/actions/workflows/ci-cd.yml
 .. image:: https://codecov.io/gh/python-fileformats/fileformats-vendor-brainproducts/branch/main/graph/badge.svg?token=UIS0OGPST7
     :target: https://codecov.io/gh/python-fileformats/fileformats-vendor-brainproducts
 .. image:: https://img.shields.io/github/stars/python-fileformats/fileformats-vendor-brainproducts.svg
