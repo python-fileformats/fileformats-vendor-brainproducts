@@ -1,18 +1,18 @@
 FileFormats Extension - Brain Products
 ======================================
-.. image:: https://github.com/arcanaframework/fileformats-vendor-brainproducts/actions/workflows/tests.yml/badge.svg
-    :target: https://github.com/arcanaframework/fileformats-vendor-brainproducts/actions/workflows/tests.yml
-.. image:: https://codecov.io/gh/arcanaframework/fileformats-vendor-brainproducts/branch/main/graph/badge.svg?token=UIS0OGPST7
-    :target: https://codecov.io/gh/arcanaframework/fileformats-vendor-brainproducts
-.. image:: https://img.shields.io/github/stars/ArcanaFramework/fileformats-vendor-brainproducts.svg
+.. image:: https://github.com/python-fileformats/fileformats-vendor-brainproducts/actions/workflows/tests.yml/badge.svg
+    :target: https://github.com/python-fileformats/fileformats-vendor-brainproducts/actions/workflows/tests.yml
+.. image:: https://codecov.io/gh/python-fileformats/fileformats-vendor-brainproducts/branch/main/graph/badge.svg?token=UIS0OGPST7
+    :target: https://codecov.io/gh/python-fileformats/fileformats-vendor-brainproducts
+.. image:: https://img.shields.io/github/stars/python-fileformats/fileformats-vendor-brainproducts.svg
     :alt: GitHub stars
-    :target: https://github.com/ArcanaFramework/fileformats-vendor-brainproducts
+    :target: https://github.com/python-fileformats/fileformats-vendor-brainproducts
 .. image:: https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat
-    :target: https://arcanaframework.github.io/fileformats/
+    :target: https://python-fileformats.github.io/fileformats/
     :alt: Documentation Status
 
 This is the "Brain Products" extension module for the
-`fileformats <https://github.com/ArcanaFramework/fileformats-core>`__ package
+`fileformats <https://github.com/python-fileformats/fileformats>`__ package
 
 
 Quick Installation
