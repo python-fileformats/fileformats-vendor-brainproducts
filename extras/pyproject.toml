@@ -8,9 +8,9 @@ description = "Extra methods for accessing and manipulating the underlying data 
 readme = "README.rst"
 requires-python = ">=3.11"
 dependencies = [
-    "fileformats >= 0.17.5",
+    "fileformats >= 0.19.0",
     "pydra >= 1.0a9",
-    "fileformats-biosig-extras >= 0.1.0",
+    "fileformats-biosig-extras >= 0.3.0",
     "fileformats-vendor-brainproducts",
 ]
 license = { file = "LICENSE" }
