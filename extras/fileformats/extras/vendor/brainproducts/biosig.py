@@ -5,10 +5,10 @@ from pathlib import Path
 
 import mne.export
 import mne.io
-
 from fileformats.biosig import Biosig, MneAnonymizeRecipe
-from fileformats.core import extra_implementation, FileSet, Loaded
+from fileformats.core import FileSet, Loaded, extra_implementation
 from fileformats.extras.biosig.utils import mne_deidentify
+
 from fileformats.vendor.brainproducts.biosig import BrainVision
 
 
@@ -34,9 +34,13 @@ def brain_vision_deidentify(
     out_dir.mkdir(parents=True, exist_ok=True)
     raw = mne.io.read_raw_brainvision(bv.header_file, preload=True, verbose=False)
     raw.info = mne_deidentify(raw, recipe)
-    deid_vhdr = out_dir / "eeg.vhdr"
+    # Keep the original names, so they still match the layout of any format the
+    # recording is nested within. The exported header and marker files are named after
+    # the header and refer to each other by those names
+    stem = bv.header_file.fspath.stem
+    deid_vhdr = out_dir / f"{stem}.vhdr"
     mne.export.export_raw(deid_vhdr, raw, fmt="brainvision", overwrite=True)
-    return BrainVision(out_dir / "eeg.eeg")
+    return BrainVision(out_dir / f"{stem}.eeg")
 
 
 def _parse_vhdr(path: os.PathLike[str]) -> dict[str, ty.Any]:
